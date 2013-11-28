@@ -53,7 +53,6 @@ for line in glob.glob("results_set001\*.txt"):
             (det, desc, inl) = get_inlier_percentage(line)
             if det == "brisk":
                 brisk_seq1.append(inl)
-                print(desc)
             if det == "fast":
                 fast_seq1.append(inl)
             if det == "gftt":
