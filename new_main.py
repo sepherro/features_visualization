@@ -26,10 +26,16 @@ seq_temp = numpy.zeros(114)
 
 
 def plot_set(plot_data):
+    file_data = genfromtxt("results_set001\\brisk_brisk_set001.txt", delimiter=';')
+    xaxis_data = file_data[50:64,28]
     legend_labels = ("BRIEF", "BRISK", "FREAK", "ORB", "SIFT", "SURF")
-    for i in range (0, 6):
-        plot(plot_data[i][0:45], label=legend_labels[i])           # tu wystarczy zmienic przedzial, zeby narysowac odpowiednia czesc wykresu
+#    plt.ylim([0, 60])
+    plt.gca().invert_xaxis()
+    plt.xlim([0.97, 0.65])
 
+    for i in range (0, 6):
+        plot(xaxis_data, plot_data[i][49:63], label=legend_labels[i])           # tu wystarczy zmienic przedzial, zeby narysowac odpowiednia czesc wykresu
+        #plot(plot_data[i][49:63], label=legend_labels[i])           # tu wystarczy zmienic przedzial, zeby narysowac odpowiednia czesc wykresu
 
 
 
@@ -40,7 +46,7 @@ def get_inlier_percentage(dataset_path):
     descriptor =stripped_name.split("_")[1]
 
     inlier_ratio = []
-    inlier_ratio =  file_data[1:115,3]/file_data[1:115, 2]
+    inlier_ratio =  file_data[1:119,5]/file_data[1:119, 4]
 
     return(detector, descriptor, inlier_ratio)
 

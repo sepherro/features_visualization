@@ -24,11 +24,19 @@ sift_seq_mean = []
 star_seq_mean = []
 surf_seq_mean = []
 
-def plot_set(plot_data):
-    legend_labels = ("BRIEF", "BRISK", "FREAK", "ORB", "SIFT", "SURF")
-    for i in range (0, 6):
-        plot(plot_data[i][0:45], label=legend_labels[i])           # tu wystarczy zmienic przedzial, zeby narysowac odpowiednia czesc wykresu
 
+
+
+def plot_set(plot_data):
+    file_data = genfromtxt("results_set001\\brisk_brisk_set001.txt", delimiter=';')
+    xaxis_data = file_data[95:117,7]
+    xaxis_data[0:10] = xaxis_data[0:10]*(-1)
+    legend_labels = ("BRIEF", "BRISK", "FREAK", "ORB", "SIFT", "SURF")
+    plt.xlim([-18, 18])
+    plt.ylim([0, 60])
+    for i in range (0, 6):
+        plot(xaxis_data, plot_data[i][94:116], label=legend_labels[i])           # tu wystarczy zmienic przedzial, zeby narysowac odpowiednia czesc wykresu
+        #plot(plot_data[i][94:118], label=legend_labels[i])           # tu wystarczy zmienic przedzial, zeby narysowac odpowiednia czesc wykresu
 
 def get_error_dist(dataset_path):
     file_data = genfromtxt(dataset_path, delimiter=';')
@@ -37,7 +45,7 @@ def get_error_dist(dataset_path):
     descriptor =stripped_name.split("_")[1]
 
     error_dist = []
-    error_dist =  file_data[1:115,6]
+    error_dist =  file_data[1:119,8]
 
     return(detector, descriptor, error_dist)
 
@@ -223,42 +231,34 @@ for i in range(0, 6):
 
 
 plt.subplot(2, 4, 1)
-plt.ylim([0, 60])
 plot_set(brisk_seq_mean)
 plt.title("BRISK")
 
 plt.subplot(2, 4, 2)
-plt.ylim([0, 60])
 plot_set(fast_seq_mean)
 plt.title("FAST")
 
 plt.subplot(2, 4, 3)
-plt.ylim([0, 60])
 plot_set(gftt_seq_mean)
 plt.title("GFTT")
 
 plt.subplot(2, 4, 4)
-plt.ylim([0, 60])
 plot_set(harris_seq_mean)
 plt.title("HARRIS")
 
 plt.subplot(2, 4, 5)
-plt.ylim([0, 60])
 plot_set(orb_seq1)
 plt.title("ORB")
 
 plt.subplot(2, 4, 6)
-plt.ylim([0, 60])
 plot_set(sift_seq_mean)
 plt.title("SIFT")
 
 plt.subplot(2, 4, 7)
-plt.ylim([0, 60])
 plot_set(star_seq_mean)
 plt.title("STAR")
 
 plt.subplot(2, 4, 8)
-plt.ylim([0, 60])
 plot_set(surf_seq_mean)
 plt.title("SURF")
 
