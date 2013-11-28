@@ -44,7 +44,6 @@ def get_inlier_percentage(dataset_path):
 
     return(detector, descriptor, inlier_ratio)
 
-    print("the number is ", i)
 
 
 

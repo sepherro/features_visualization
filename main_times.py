@@ -3,7 +3,7 @@ from pylab import *
 import glob
 import os
 import numpy
-
+import pylab
 
 def get_processing_time(dataset_path):
     file_data = genfromtxt(dataset_path, delimiter=';')
@@ -40,6 +40,7 @@ positions = (1, 2, 3, 4, 5, 6, 7, 8)
 
 plt.bar(positions, proc_times, align='center')
 plt.xticks(positions, labels)
+plt.ylabel('avg. time/feature [ms]')
 plt.show()
 
 
