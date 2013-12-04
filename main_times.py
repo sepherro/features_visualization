@@ -15,8 +15,8 @@ def get_processing_time(dataset_path):
     # 1 nFeatures # 2 processing time
 
     time_per_feature = []
-    #time_per_feature =  (file_data[1:115,2]*1000)/file_data[1:115, 1]
-    time_per_feature =  (file_data[1:115,2])
+    time_per_feature =  (file_data[1:115,2]*1000)/file_data[1:115, 1]
+    #time_per_feature =  (file_data[1:115,2]*1000)
     avg_time = sum(time_per_feature)/len(time_per_feature)
 
     print("time per feature is ", avg_time, "milliseconds")
@@ -26,14 +26,14 @@ def get_processing_time(dataset_path):
 proc_times = []
 labels = ("BRISK", "FAST", "GFTT", "HARRIS", "ORB", "SIFT", "STAR", "SURF")
 
-proc_times.append( get_processing_time("results_set001\\brisk_sift_set001_stat.txt")[1] )
-proc_times.append( get_processing_time("results_set001\\fast_sift_set001_stat.txt")[1] )
-proc_times.append( get_processing_time("results_set001\\gftt_sift_set001_stat.txt")[1] )
-proc_times.append( get_processing_time("results_set001\\harris_sift_set001_stat.txt")[1] )
-proc_times.append( get_processing_time("results_set001\\orb_sift_set001_stat.txt")[1] )
-proc_times.append( get_processing_time("results_set001\\sift_sift_set001_stat.txt")[1] )
-proc_times.append( get_processing_time("results_set001\\star_sift_set001_stat.txt")[1] )
-proc_times.append( get_processing_time("results_set001\\surf_sift_set001_stat.txt")[1] )
+proc_times.append( get_processing_time("results_set001\\brisk_surf_set001_stat.txt")[1] )
+proc_times.append( get_processing_time("results_set001\\fast_surf_set001_stat.txt")[1] )
+proc_times.append( get_processing_time("results_set001\\gftt_surf_set001_stat.txt")[1] )
+proc_times.append( get_processing_time("results_set001\\harris_surf_set001_stat.txt")[1] )
+proc_times.append( get_processing_time("results_set001\\orb_surf_set001_stat.txt")[1] )
+proc_times.append( get_processing_time("results_set001\\sift_surf_set001_stat.txt")[1] )
+proc_times.append( get_processing_time("results_set001\\star_surf_set001_stat.txt")[1] )
+proc_times.append( get_processing_time("results_set001\\surf_surf_set001_stat.txt")[1] )
 
 #TODO: Dobrać odpowiednio czasy
 
